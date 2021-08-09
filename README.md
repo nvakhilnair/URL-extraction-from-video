@@ -6,4 +6,4 @@ Websites are automatically opened in chrome after the extraction
 Tesseract,
 openCV,
 selenium webdriver,
-Chrome webdriver (download version according to chrome browser you are using)
+Chrome webdriver (download version according to chrome browser and operating system you are using)

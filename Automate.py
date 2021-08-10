@@ -4,7 +4,7 @@ from selenium import webdriver
 def web_Automate(urls):
     chrome_options = webdriver.ChromeOptions()
     chrome_options.add_argument("--disable-gpu")
-    chrome_Driver_Dir = os.getcwd() + '/chromedriver'
+    chrome_Driver_Dir = os.getcwd() + '/Linux_chromedriver'
     browser = webdriver.Chrome(chrome_Driver_Dir,options = chrome_options)
     browser.get(urls[0])
 

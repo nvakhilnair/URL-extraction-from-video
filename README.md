@@ -1,6 +1,6 @@
 ## Video-Url-Extraction
-This can be used to extract url from presentation videos
-Websites are automatically opened in chrome after the extraction
+This can be used to extract url from presentation videos.
+ And websites are automatically opened in chrome after the extraction
 
 # Requirements
 Tesseract,

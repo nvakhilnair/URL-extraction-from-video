@@ -1,7 +1,7 @@
 
 # Url Extraction from Video
-This console based application is used to extract urls from video(Presentation).
-After successfull extraction those urls are opened in google chrome automatically using selenium.
+This console-based application is used to extract URLs from videos (Presentation).
+After successful extraction, those URLs are opened in google chrome automatically using selenium.
 
 ## Installation
 

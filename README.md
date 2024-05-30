@@ -1,72 +1,91 @@
+# URL Extraction from Video
 
-# Url Extraction from Video
-This console-based application is used to extract URLs from videos (Presentation).
-After successful extraction, those URLs are opened in google chrome automatically using selenium.
+## Project Description
+
+This project provides a Python class `ExtractUrls` that extracts URLs from video frames using Optical Character Recognition (OCR). The program reads a video file, processes each frame to extract text, and then uses regular expressions to find and collect URLs from the extracted text. This can be particularly useful for videos containing embedded URLs that you need to gather.
+
+## Requirements
+
+- Python 3.6 or higher
+- OpenCV
+- pytesseract
+- Tesseract-OCR engine
 
 ## Installation
 
-1. Installation of required python libraries
+1. **Clone the Repository:**
+    ```sh
+    git clone https://github.com/your-username/url-extraction-from-video.git
+    cd url-extraction-from-video
+    ```
 
-```bash
-  pip install opencv-python
-  pip install pytesseract
-  pip install selenium
-```
+2. **Install Required Libraries:**
+    ```sh
+    pip install opencv-python pytesseract
+    ```
 
-2. Installation of tessseract 
+3. **Install Tesseract-OCR:**
+    - **Ubuntu:**
+        ```sh
+        sudo apt update
+        sudo apt install tesseract-ocr
+        ```
+    - **Windows:**
+        Download and install the Tesseract installer from [this link](https://github.com/UB-Mannheim/tesseract/wiki).
 
-- Linux machine.
-```bash
-  apt-get install tesseract-ocr
-```
+    - **MacOS:**
+        ```sh
+        brew install tesseract
+        ```
 
-- Windows machine.
-Download and install from url given below
+## Usage
 
-https://digi.bib.uni-mannheim.de/tesseract/
+1. **Prepare your Video File:**
+    Ensure that the video file from which you want to extract URLs is available and note its path.
 
+2. **Run the Script:**
+    Execute the script and provide the path to the video file when prompted:
+    ```sh
+    python extract_urls.py
+    ```
 
-3. Download chrome Driver
-Download required version of chrome driver from url given below
-https://chromedriver.chromium.org/downloads
+    You will be prompted to enter the video file path:
+    ```sh
+    Enter the video file path: /path/to/your/video.mp4
+    ```
 
+3. **Output:**
+    The script will process the video, extract URLs, and print them. If no URLs are found, it will notify you.
 
-## Deployment
-
-To run this project run the following command in downloaded directory
-
-```bash
-  python Main.py
-```
-check the demo video mentioned below.
-  
-## Demo
-https://drive.google.com/file/d/1bHKe806yY7Vo1EebtbXd3P8an5c4x_9a/view?usp=sharing
 ## License
 
 [MIT](https://choosealicense.com/licenses/mit/)
 
-  
-## Feedback
+## Code Explanation
 
-If you have any feedback, please reach out to us at madewithpy009@gmail.com
+Here's a brief explanation of the main components of the code:
 
-  
-## Support
+### ExtractUrls Class
 
-For support, email madewithpy009@gmail.com.
+- **Attributes:**
+  - `video_path`: The path to the video file.
+  - `extracted_urls`: A list to store the extracted URLs.
+  - `sec`: Current time position in the video.
+  - `frame_rate`: Frame rate to skip while extracting text from video frames.
+  - `success_flag`: Flag to indicate successful extraction of text from a frame.
+  - `raw_text`: The raw text extracted from the video frame.
 
-  
-## Authors
+- **Methods:**
+  - `__init__(self, video_path)`: Initializes the `ExtractUrls` object with the given video path and starts the extraction process.
+  - `start(self)`: Initiates the extraction process, iterating through frames and extracting text.
+  - `extract_text_from_frame(self)`: Extracts text from the current video frame using OCR.
+  - `get_extract_urls_from_raw_text(self)`: Uses regular expressions to find URLs in the extracted text.
 
-- [@nvakhilnair](https://github.com/nvakhilnair)
+### Example Usage
 
-  
-![Logo](https://cdn1.bbcode0.com/uploads/2021/8/10/e7b5c5b1dc5b9a6f848ee9135f2e000c-full.png)
+Here's an example of how to use the `ExtractUrls` class in your script:
 
-    
-## 🚀 About Me
-- 👋 Hi, I’m @nvakhilnair
-- 👀 I’m interested in Data Science,Machine learning, Data Mining, Data Visualization and Programing
-- 🌱 I’m currently open to work
-- 📫 How to reach me https://www.linkedin.com/in/akhilnvnair
+```python
+if __name__ == "__main__":
+    video_path = input('Enter the video file path: ')
+    obj = ExtractUrls(video_path=video_path)
